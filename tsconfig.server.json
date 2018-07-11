@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "lib": ["es5", "es6", "es2017", "dom"],
+    "target": "es6",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "noEmit": true,
+    "noImplicitReturns": true,
+    "allowSyntheticDefaultImports": true,
+    "allowJs": true,
+    "jsx": "react",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "noUnusedLocals": true,
+    "skipLibCheck": true,
+    "strictNullChecks": false
+  },
+  "include": ["./**/*.ts", "./**/*.tsx"],
+  "exclude": ["node_modules", "build", "console_ui", "console_static"]
+}
