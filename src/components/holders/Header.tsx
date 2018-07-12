@@ -1,5 +1,10 @@
 import { AppBar, IconButton, Toolbar, Typography } from '@material-ui/core';
-import { StyleRules, StyleRulesCallback, WithStyles, withStyles } from '@material-ui/core/styles';
+import {
+  StyleRules,
+  StyleRulesCallback,
+  WithStyles,
+  withStyles,
+} from '@material-ui/core/styles';
 import * as React from 'react';
 
 import { Github } from '../icons';
@@ -10,7 +15,11 @@ const Header = ({ classes }: WithStyles<ClassKey>) => (
       <Typography variant="title" color="inherit">
         Screenshot maker
       </Typography>
-      <IconButton aria-haspopup="true" href="" color="inherit">
+      <IconButton
+        aria-haspopup="true"
+        href="https://github.com/Julia0709/screenshot-maker"
+        color="inherit"
+      >
         <Github />
       </IconButton>
     </Toolbar>
