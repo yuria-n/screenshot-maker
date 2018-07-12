@@ -2,6 +2,7 @@ import { TextField } from '@material-ui/core';
 import {
   StyleRules,
   StyleRulesCallback,
+  Theme,
   WithStyles,
   withStyles,
 } from '@material-ui/core/styles';
@@ -10,15 +11,13 @@ import * as FileSaver from 'file-saver';
 import * as moment from 'moment';
 import * as React from 'react';
 
-type Props = Partial<State>;
-
 interface State {
   readonly url: string;
 }
 
-import { ContentCard, FormButton, Header } from '../components';
+import { ContentCard, FormButton, Header } from '@components';
 
-class App extends React.PureComponent<Props & WithStyles<ClassKey>, State> {
+class App extends React.PureComponent<WithStyles<ClassKey>, State> {
   public state: State = {
     url: '',
   };
@@ -42,17 +41,12 @@ class App extends React.PureComponent<Props & WithStyles<ClassKey>, State> {
               fullWidth={true}
               margin="normal"
             />
-            <FormButton
-              name="preview"
-              text="preview"
-              onClick={this.onPreviewClick}
-            />
-            <FormButton
-              name="download"
-              text="Download"
-              onClick={this.onDownloadClick}
-              color="secondary"
-            />
+            <FormButton onClick={this.onPreviewClick} color="primary">
+              Preview
+            </FormButton>
+            <FormButton onClick={this.onDownloadClick} color="secondary">
+              Download
+            </FormButton>
           </ContentCard>
         </div>
       </div>
@@ -82,7 +76,9 @@ class App extends React.PureComponent<Props & WithStyles<ClassKey>, State> {
 }
 
 type ClassKey = 'content';
-const styles: StyleRulesCallback<ClassKey> = (theme): StyleRules<ClassKey> => ({
+const styles: StyleRulesCallback<ClassKey> = (
+  theme: Theme,
+): StyleRules<ClassKey> => ({
   content: {
     margin: 'auto',
     maxWidth: theme.breakpoints.values.lg + theme.spacing.unit * 4,

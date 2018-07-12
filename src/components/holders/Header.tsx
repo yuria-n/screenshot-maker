@@ -1,13 +1,8 @@
 import { AppBar, IconButton, Toolbar, Typography } from '@material-ui/core';
-import {
-  StyleRules,
-  StyleRulesCallback,
-  WithStyles,
-  withStyles,
-} from '@material-ui/core/styles';
+import { StyleRules, WithStyles, withStyles } from '@material-ui/core/styles';
 import * as React from 'react';
 
-import { Github } from '../icons';
+import { Github } from '@components';
 
 const Header = ({ classes }: WithStyles<ClassKey>) => (
   <AppBar position="static">
@@ -18,6 +13,7 @@ const Header = ({ classes }: WithStyles<ClassKey>) => (
       <IconButton
         aria-haspopup="true"
         href="https://github.com/Julia0709/screenshot-maker"
+        target="_blank"
         color="inherit"
       >
         <Github />
@@ -27,11 +23,11 @@ const Header = ({ classes }: WithStyles<ClassKey>) => (
 );
 
 type ClassKey = 'toolbar';
-const styles: StyleRulesCallback<ClassKey> = (): StyleRules<ClassKey> => ({
+const styles: StyleRules<ClassKey> = {
   toolbar: {
     alignItems: 'center',
     justifyContent: 'space-between',
   },
-});
+};
 
 export default withStyles(styles)(Header);

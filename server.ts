@@ -3,7 +3,7 @@ import * as path from 'path';
 
 import { generatePdf } from './lib';
 
-const HOST = process.env.HOST || 'http://localhost:';
+const HOST = process.env.HOST || 'http://localhost';
 const PORT = process.env.PORT || 3001;
 
 const app = express();
@@ -22,5 +22,5 @@ app.post('/pdf', async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Open ${HOST + PORT} on your Chrome browser!`);
+  console.log(`Open ${HOST}:${PORT} on your Chrome browser!`);
 });

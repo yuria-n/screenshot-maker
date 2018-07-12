@@ -1,5 +1,11 @@
 import { Card, CardContent } from '@material-ui/core';
-import { StyleRules, StyleRulesCallback, WithStyles, withStyles } from '@material-ui/core/styles';
+import {
+  StyleRules,
+  StyleRulesCallback,
+  Theme,
+  WithStyles,
+  withStyles,
+} from '@material-ui/core/styles';
 import * as React from 'react';
 
 interface Props {
@@ -13,7 +19,9 @@ const ContentCard = ({ classes, children }: Props & WithStyles<ClassKey>) => (
 );
 
 type ClassKey = 'container';
-const styles: StyleRulesCallback<ClassKey> = (theme): StyleRules<ClassKey> => ({
+const styles: StyleRulesCallback<ClassKey> = (
+  theme: Theme,
+): StyleRules<ClassKey> => ({
   container: {
     margin: theme.spacing.unit * 2,
     maxWidth: theme.breakpoints.values.lg,

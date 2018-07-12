@@ -1,38 +1,29 @@
-import { Button, PropTypes } from '@material-ui/core';
-import { StyleRules, StyleRulesCallback, WithStyles, withStyles } from '@material-ui/core/styles';
+import Button, { ButtonProps } from '@material-ui/core/Button';
+import {
+  StyleRules,
+  StyleRulesCallback,
+  Theme,
+  WithStyles,
+  withStyles,
+} from '@material-ui/core/styles';
 import * as React from 'react';
 
-interface Props {
-  readonly color?: PropTypes.Color;
-  readonly name: string;
-  readonly onClick: () => void;
-  readonly text: string;
-}
+type Props = ButtonProps & WithStyles<ClassKey>;
 
-const FormButton = ({
-  classes,
-  color = 'primary',
-  name,
-  onClick,
-  text,
-}: Props & WithStyles<ClassKey>) => (
-  <Button
-    name={name}
-    className={classes.button}
-    variant="contained"
-    color={color}
-    onClick={onClick}
-  >
-    {text}
+const FormButton = ({ children, classes, ...props }: Props) => (
+  <Button {...props} className={classes.button} variant="contained">
+    {children}
   </Button>
 );
 
 type ClassKey = 'button';
-const styles: StyleRulesCallback<ClassKey> = (theme): StyleRules<ClassKey> => ({
+const styles: StyleRulesCallback<ClassKey> = (
+  theme: Theme,
+): StyleRules<ClassKey> => ({
   button: {
     marginRight: theme.spacing.unit,
     marginTop: theme.spacing.unit,
   },
 });
 
-export default withStyles(styles)(FormButton);
+export default withStyles(styles)<Props>(FormButton);
